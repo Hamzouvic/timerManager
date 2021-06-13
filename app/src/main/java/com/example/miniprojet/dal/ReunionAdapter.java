@@ -10,18 +10,17 @@ import com.example.miniprojet.Entities.Reunion;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ReunionAdapter {
     private SQLiteDatabase myDB;
     private final String TABLE_NAME = "reunion";
-    private final String[] TABLE_COLUMNS = new String[]{"id","title","date"};
+    private final String[] TABLE_COLUMNS = new String[]{"id","title","date","duree"};
 
     public ReunionAdapter(SQLiteDatabase dbConnection){
         this.myDB = dbConnection;
     }
 
-    public void insertReunion(Reunion reunion){
+    public long insertReunion(Reunion reunion){
         ContentValues contentValues = new ContentValues();
         contentValues.put("title",reunion.getTitle());
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -29,6 +28,7 @@ public class ReunionAdapter {
         contentValues.put("date",now.toString());
         long returnn = myDB.insert(TABLE_NAME, null, contentValues);
         Log.d("return value " ,"---------"+returnn);
+        return returnn;
     }
 
     public ArrayList<Reunion> getReunions(){
@@ -61,5 +61,10 @@ public class ReunionAdapter {
             reunion = new Reunion(cursor.getInt(0),cursor.getString(1),cursor.getString(2));
         }while(cursor.moveToNext());
         return reunion;
+    }
+    private void update(Reunion reunion){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("duree",reunion.getDuree());
+        myDB.update(TABLE_NAME,contentValues,"id="+reunion.getId(),null);
     }
 }

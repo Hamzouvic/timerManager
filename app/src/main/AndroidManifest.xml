@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ReunionDetails" android:parentActivityName=".Historique"></activity>
+        <activity android:name=".ReunionRoom"></activity>
+        <activity
+            android:name=".ReunionDetails"
+            android:parentActivityName=".Historique" />
         <activity
             android:name=".Historique"
             android:parentActivityName=".MainActivity" />

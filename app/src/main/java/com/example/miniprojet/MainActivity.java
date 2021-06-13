@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.miniprojet.Entities.Reunion;
-import com.example.miniprojet.dal.DBConnection;
 
 public class MainActivity extends AppCompatActivity {
     @Override
