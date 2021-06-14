@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class DBConnection extends SQLiteOpenHelper {
     private final static String DB_NAME = "myDB";
-    private final static int VERSION = 4;
+    private final static int VERSION = 6;
 
     private final static String REQUETE1 ="create table reunion(id INTEGER PRIMARY KEY AUTOINCREMENT,title text,date text,duree INTEGER);";
     private final static String REQUETE2 = "create table subject(id INTEGER PRIMARY KEY AUTOINCREMENT, title text,duree INTEGER, id_reunion INTEGER NOT NULL, FOREIGN KEY(id_reunion) references reunion(id));";

@@ -50,6 +50,14 @@ public class CreerReunion extends AppCompatActivity {
             Toast.makeText(this, "Entrer un titre stp", Toast.LENGTH_SHORT).show();
             return;
         }
+        if(AjouterSujets.subjects.size() == 0){
+            Toast.makeText(this, "Entrer un sujet stp", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(AjouterPersonne.personnes.size() == 0){
+            Toast.makeText(this, "Entrer une personne stp", Toast.LENGTH_SHORT).show();
+            return;
+        }
         reunion.setTitle(titre);
         insertIntoDB();
         Toast.makeText(this, "ajouter", Toast.LENGTH_SHORT).show();

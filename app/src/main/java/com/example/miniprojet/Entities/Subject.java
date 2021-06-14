@@ -9,6 +9,13 @@ public class Subject {
 
     }
 
+    public Subject(int id, String title, int duree, int id_reunion) {
+        this.id = id;
+        this.title = title;
+        this.id_reunion = id_reunion;
+        this.duree = duree;
+    }
+
     public int getDuree() {
         return duree;
     }

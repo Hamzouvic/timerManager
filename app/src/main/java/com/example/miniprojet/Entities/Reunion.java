@@ -23,6 +23,13 @@ public class Reunion{
         this.date = date;
     }
 
+    public Reunion(int id, String title, String date, int duree) {
+        this.id = id;
+        this.title = title;
+        this.date = date;
+        this.duree = duree;
+    }
+
     public Reunion(){
 
     }

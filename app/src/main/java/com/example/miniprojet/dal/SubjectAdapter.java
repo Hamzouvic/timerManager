@@ -7,8 +7,6 @@ import android.util.Log;
 
 import com.example.miniprojet.Entities.Subject;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class SubjectAdapter {
@@ -46,7 +44,7 @@ public class SubjectAdapter {
         if(cursor.getCount() == 0) return subjects;
         cursor.moveToFirst();
         do{
-            subjects.add(new Subject(cursor.getInt(0),cursor.getString(1),cursor.getInt(2)));
+            subjects.add(new Subject(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3)));
         }while(cursor.moveToNext());
         return subjects;
     }
@@ -55,14 +53,14 @@ public class SubjectAdapter {
         if(cursor.getCount() == 0) return subject;
         cursor.moveToFirst();
         do{
-            subject = new Subject(cursor.getInt(0),cursor.getString(1),cursor.getInt(2));
+            subject = new Subject(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3));
         }while(cursor.moveToNext());
         return subject;
     }
 
-    private void update(Subject subject){
+    public void update(Subject subject){
         ContentValues contentValues = new ContentValues();
-        contentValues.put("duree",subject.getDuree());
+        contentValues.put("duree", subject.getDuree());
         myDB.update(TABLE_NAME,contentValues,"id="+subject.getId(),null);
     }
 }

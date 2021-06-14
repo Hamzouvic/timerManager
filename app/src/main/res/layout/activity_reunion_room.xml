@@ -26,7 +26,7 @@
             android:id="@+id/chrono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="10:00"
+            android:text="00:00:00"
             android:textAlignment="center"
             android:textSize="50dp"
             android:layout_marginBottom="10dp"
@@ -34,11 +34,23 @@
             android:textColor="@color/colorAccent"
             />
 
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="participants" />
+
         <ListView
             android:id="@+id/personne_id"
             android:layout_width="match_parent"
             android:layout_height="214dp"
             android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="sujets" />
 
         <ListView
             android:id="@+id/sujets_id"
@@ -53,6 +65,7 @@
             android:text="Arreter la reunion"
             android:background="@color/colorPrimaryDark"
             android:textColor="@color/colorAccent"
+            android:onClick="arreter"
             />
 
     </LinearLayout>

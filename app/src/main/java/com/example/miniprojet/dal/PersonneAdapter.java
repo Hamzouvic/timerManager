@@ -48,7 +48,7 @@ public class PersonneAdapter {
         if(cursor.getCount() == 0) return personnes;
         cursor.moveToFirst();
         do{
-            personnes.add(new Personne(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3)));
+            personnes.add(new Personne(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3),cursor.getInt(4)));
         }while(cursor.moveToNext());
         return personnes;
     }
@@ -57,11 +57,11 @@ public class PersonneAdapter {
         if(cursor.getCount() == 0) return personne;
         cursor.moveToFirst();
         do{
-            personne = new Personne(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3));
+            personne = new Personne(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3),cursor.getInt(4));
         }while(cursor.moveToNext());
         return personne;
     }
-    private void update(Personne personne){
+    public void update(Personne personne){
         ContentValues contentValues = new ContentValues();
         contentValues.put("duree",personne.getDuree());
         myDB.update(TABLE_NAME,contentValues,"id="+personne.getId(),null);

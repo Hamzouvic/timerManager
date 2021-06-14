@@ -38,7 +38,7 @@ public class ReunionDetails extends AppCompatActivity {
         reunionAdapter = new ReunionAdapter(dbConnection.getWritableDatabase());
         Reunion reunion = reunionAdapter.getById(id);
         title.setText(reunion.getTitle()+"");
-        duree.setText(reunion.getDate());
+        duree.setText(reunion.getDuree()+"");
         /*
         after creating adapter for both subjects and participants
          */
@@ -57,7 +57,7 @@ public class ReunionDetails extends AppCompatActivity {
         if (personnesArrayList.isEmpty()) return titles;
         for (Personne r :
                 personnesArrayList) {
-            titles.add(r.getFullName());
+            titles.add(String.format(r.getFullName()+"\ntime:%d min",r.getDuree()));
         }
         return titles;
     }
@@ -66,7 +66,7 @@ public class ReunionDetails extends AppCompatActivity {
         if (subjectsArrayList.isEmpty()) return titles;
         for (Subject r :
                 subjectsArrayList) {
-            titles.add(r.getTitle());
+            titles.add(String.format(r.getTitle()+"\ntime: %d min",r.getDuree()));
         }
         return titles;
     }

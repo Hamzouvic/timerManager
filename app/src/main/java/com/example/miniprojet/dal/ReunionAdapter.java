@@ -49,7 +49,7 @@ public class ReunionAdapter {
         if(cursor.getCount() == 0) return reunions;
         cursor.moveToFirst();
         do{
-            reunions.add(new Reunion(cursor.getInt(0),cursor.getString(1),cursor.getString(2)));
+            reunions.add(new Reunion(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3)));
         }while(cursor.moveToNext());
         return reunions;
     }
@@ -62,7 +62,7 @@ public class ReunionAdapter {
         }while(cursor.moveToNext());
         return reunion;
     }
-    private void update(Reunion reunion){
+    public void update(Reunion reunion){
         ContentValues contentValues = new ContentValues();
         contentValues.put("duree",reunion.getDuree());
         myDB.update(TABLE_NAME,contentValues,"id="+reunion.getId(),null);

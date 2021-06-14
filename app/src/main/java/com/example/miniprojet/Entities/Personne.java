@@ -11,8 +11,16 @@ public class Personne {
         return duree;
     }
 
-    public void setDuree(int duree) {
+    public Personne(int id, String fullName,String role, int duree, int id_reunion) {
+        this.id = id;
+        this.fullName = fullName;
+        this.id_reunion = id_reunion;
+        this.role = role;
         this.duree = duree;
+    }
+
+    public void setDuree(int duree) {
+        this.duree += duree;
     }
 
     public String getRole() {
